@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+@source "../lib";
+@source "../components";
+@source "../app";
+
+:root {
+  --bg:#F4F2FB; --surface:#FFFFFF; --ink:#17152B; --muted:#55526B; --line:#DAD6EC;
+  --accent:#4332D9; --on-accent:#FFFFFF; --hi:#FFD84D; --on-hi:#17152B; --danger:#C8203A;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg:#12101F; --surface:#1C1930; --ink:#F1EFFA; --muted:#B0ACCB; --line:#332F52; --accent:#A99BFF; --on-accent:#12101F; --danger:#FF8CA0; }
+}
+:root[data-theme="dark"] { --bg:#12101F; --surface:#1C1930; --ink:#F1EFFA; --muted:#B0ACCB; --line:#332F52; --accent:#A99BFF; --on-accent:#12101F; --danger:#FF8CA0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
+body { @apply bg-bg font-body text-[1.0625rem] leading-[1.65] text-ink; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+@layer components {
+  .wrap { @apply mx-auto max-w-[1120px] px-6; }
+  .btn { @apply inline-block cursor-pointer rounded-full border-2 border-ink bg-transparent px-[22px] py-3 font-semibold text-ink no-underline transition-transform hover:-translate-y-px; }
+  .btn-p { @apply border-accent bg-accent text-onaccent; }
+  .field { @apply w-full rounded-[10px] border-[1.5px] border-line bg-surface px-3.5 py-3 text-ink; }
+  .err { @apply min-h-[1.2em] text-sm font-medium text-danger; }
+}
+
+/* Hero phone: wireframe -> final UI */
+.phone .screen { background: var(--bg); border: 2px dashed var(--muted); transition: all .45s; }
+.phone .screen > * { background: transparent; border: 2px dashed var(--muted); border-radius: 6px; transition: all .45s; }
+.phone[data-final="true"] .screen { background: linear-gradient(160deg,#4332D9,#7B5CFF); border-color: transparent; border-style: solid; }
+.phone[data-final="true"] .screen > .bar { background: var(--hi); border-color: transparent; border-radius: 99px; }
+.phone[data-final="true"] .screen > .card { background: rgba(255,255,255,.16); border-color: transparent; border-radius: 18px; }
+.phone[data-final="true"] .screen > .pill { background: var(--hi); border-color: transparent; border-radius: 99px; color: var(--on-hi); }
+
+details.proj > summary { list-style: none; }
+details.proj > summary::-webkit-details-marker { display: none; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+
+/* Hero motion background (design-tool feel) */
+.mb-grid { position:absolute; inset:0; background-image:radial-gradient(var(--line) 1.5px, transparent 1.5px); background-size:28px 28px;
+  -webkit-mask-image:radial-gradient(ellipse at 70% 40%, #000 20%, transparent 75%); mask-image:radial-gradient(ellipse at 70% 40%, #000 20%, transparent 75%);
+  animation:mb-pan 30s linear infinite; }
+@keyframes mb-pan { to { background-position:28px 28px; } }
+.mb-curve { position:absolute; inset:0; width:100%; height:100%; opacity:.5; }
+.mb-path { stroke:var(--accent); stroke-width:2.5; stroke-dasharray:1200; stroke-dashoffset:1200; animation:mb-draw 9s ease-in-out infinite; }
+@keyframes mb-draw { 0% { stroke-dashoffset:1200; } 55%,85% { stroke-dashoffset:0; } 100% { stroke-dashoffset:-1200; } }
+.mb-handle { stroke:var(--accent); stroke-width:1; stroke-dasharray:4 4; }
+.mb-anchor { fill:var(--surface); stroke:var(--accent); stroke-width:2; }
+.mb-card { position:absolute; border:2px dashed var(--muted); border-radius:14px; opacity:.35; animation:mb-float 11s ease-in-out infinite; }
+.mb-c1 { width:140px; height:90px; left:5%; top:16%; --r:-3deg; }
+.mb-c2 { width:110px; height:70px; right:7%; bottom:12%; --r:4deg; animation-delay:-4s; }
+@keyframes mb-float { 50% { transform:translateY(-22px) rotate(var(--r, 0deg)); } }
+.mb-btn { position:absolute; left:46%; bottom:9%; width:120px; height:40px; border-radius:99px; background:var(--hi); opacity:.55; animation:mb-float 8s ease-in-out infinite -2s; }
+.mb-select { position:absolute; left:58%; top:14%; width:170px; height:100px; border:1.5px solid var(--accent); animation:mb-resize 7s ease-in-out infinite; }
+.mb-select i { position:absolute; width:8px; height:8px; background:var(--surface); border:1.5px solid var(--accent); }
+.mb-select i:nth-child(1){left:-5px;top:-5px} .mb-select i:nth-child(2){right:-5px;top:-5px}
+.mb-select i:nth-child(3){left:-5px;bottom:-5px} .mb-select i:nth-child(4){right:-5px;bottom:-5px}
+@keyframes mb-resize { 50% { width:230px; height:70px; transform:translate(-20px,24px); } }
+.mb-cursor { position:absolute; left:60%; top:20%; animation:mb-cursor 7s ease-in-out infinite; }
+@keyframes mb-cursor { 50% { transform:translate(190px,70px); } }
+@media (max-width:767px) { .mb-c1,.mb-select,.mb-cursor { display:none; } }
+@media (prefers-reduced-motion: reduce) {
+  .motion-bg * { animation:none !important; }
+  .mb-path { stroke-dashoffset:0; }
+}

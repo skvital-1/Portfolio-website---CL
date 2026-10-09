@@ -13,8 +13,8 @@ export const profile = {
   ],
   photo: "/profile.jpg", // add your image to /public (e.g. "/profile.jpg") and set the path here
   bio: [
-    "I'm Princess, a UI/UX designer based in Accra, Ghana, working with teams across the capital. I care about plain language, accessible interfaces, and design decisions I can explain with evidence.",
-    "Before design I studied computer science, so I work comfortably with developers and know what is cheap or costly to build. Outside work I mentor early-career designers.",
+    "I'm Princess Ama Boatemaa, a UI/UX designer based in Accra, Ghana, with a background in Computer Science and a strong interest in Human-Computer Interaction (HCI)." 
+    "I design digital experiences that help people navigate complex problems through clear, accessible, and intuitive interfaces. My approach combines user research, interaction design, and technical understanding to create solutions grounded in real user needs." ,
   ],
   tools: ["Figma", "React", "Notion", "FigJam", "Webflow", "HTML and CSS"],
   resumeHref: "#contact", // replace with "/resume.pdf" after adding the file to /public

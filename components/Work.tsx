@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import Section from "./Section";
 import { projects } from "@/lib/content";
 

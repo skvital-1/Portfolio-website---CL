@@ -43,7 +43,7 @@ export const projects: Project[] = [
   {
     id: "VERDIS", title: "VERDIS, designing digital tools for agricultural communities", meta: "AgriTech · Community Project.", type: "web",
     tags: ["Web", "Accessibility", "Design system"], gradient: "from-[#0E7C66] to-[#FFD84D]",
-    image: "/verdis.jpg",
+    image: "/Verdis.jpg",
     problem: "Farmers face challenges with managing information and accessing digital tools in low-connectivity environments.",
     role: "UX Researcher · UI/UX Designer · User Research · Stakeholder Interviews · User Flows · UI Design · Figma",
     constraints: "Limited connectivity,	Accessibility, Localization,	Different levels of digital literacy.",

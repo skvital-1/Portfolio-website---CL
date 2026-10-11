@@ -23,6 +23,7 @@ export const profile = {
 export type Project = {
   id: string; title: string; meta: string; type: "mobile" | "web"; tags: string[]; gradient: string;
   problem: string; role: string; constraints: string; process: string; impact: string; next: string;
+  image?: string;
   prototype?: string;
 };
 
@@ -30,6 +31,7 @@ export const projects: Project[] = [
   {
     id: "MOBIFIN", title: "MOBIFIN, financial services for MOMO users", meta: "Fintech, 2026 · Lead designer on a team of 3.", type: "mobile",
     tags: ["Mobile", "Research", "Prototype"], gradient: "from-[#4332D9] to-[#FF7AA8]",
+    image: "/mobifin.jpg",
     problem: "Financial inclusion gaps for mobile users under time pressure.",
     role: "Team Lead · UX/UI Designer · UX Research · User Flows · Wireframes · UI Design Figma · FigJam · React",
     constraints: "48-hours build, 3-person team, Limited research, testing time and Functional MVP required.",
@@ -41,6 +43,7 @@ export const projects: Project[] = [
   {
     id: "VERDIS", title: "VERDIS, designing digital tools for agricultural communities", meta: "AgriTech · Community Project.", type: "web",
     tags: ["Web", "Accessibility", "Design system"], gradient: "from-[#0E7C66] to-[#FFD84D]",
+    image: "/verdis.jpg",
     problem: "Farmers face challenges with managing information and accessing digital tools in low-connectivity environments.",
     role: "UX Researcher · UI/UX Designer · User Research · Stakeholder Interviews · User Flows · UI Design · Figma",
     constraints: "Limited connectivity,	Accessibility, Localization,	Different levels of digital literacy.",
@@ -52,6 +55,7 @@ export const projects: Project[] = [
   {
     id: "MOMO BUDGET", title: "MOMO BUDGET, Making MOMO budgeting simpler", meta: "Fintech · Personal Project.", type: "mobile",
     tags: ["Mobile", "Finance", "Budgeting"], gradient: "from-[#4332D9] to-[#FF7AA8]",
+    image: "/momo-saver.jpg",
     problem: "Users struggle to manage their finances effectively due to complex interfaces and lack of personalized insights.",
     role: "Product Designer · UX Researcher · User Flows · Wireframes · UI Design Figma · FigJam",
     constraints: "48-hours build, 3-person team, Limited research, testing time and Functional MVP required.",

@@ -19,7 +19,12 @@ export default function Work() {
       {projects.filter((p) => f === "all" || p.type === f).map((p) => (
         <details key={p.id} className="proj group mb-5 overflow-hidden rounded-[20px] border border-line bg-surface">
           <summary className="grid cursor-pointer items-center gap-7 p-5 group-open:border-b group-open:border-line sm:grid-cols-[200px_1fr]">
-            <div role="img" aria-label={`${p.title} preview`} className={`h-[140px] rounded-xl bg-gradient-to-br ${p.gradient}`} />
+            {p.image ? (
+              <Image src={p.image} alt={`${p.title} screenshot`} width={800} height={560} sizes="(min-width: 640px) 200px, 100vw"
+                className="h-[180px] w-full rounded-xl border border-line object-cover object-top sm:h-[140px]" />
+            ) : (
+              <div role="img" aria-label={`${p.title} preview`} className={`h-[140px] rounded-xl bg-gradient-to-br ${p.gradient}`} />
+            )}
             <div>
               <h3 className="mb-1.5 font-display text-[1.6rem] font-bold leading-tight">{p.title}</h3>
               <p className="text-[.95rem] text-muted">{p.meta}</p>
